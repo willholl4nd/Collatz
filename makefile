@@ -1,8 +1,8 @@
 run: BestCollatz
 	java BestCollatz
 	
-BestCollatz: 
-	javac BestCollatz.java Timer.java
+BestCollatz: *.java
+	javac *.java
 
 clean: 
 	rm *.class

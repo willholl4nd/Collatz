@@ -50,10 +50,10 @@ public class BestCollatz extends Thread {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("How many new collatz sequences do you want to find? ");
 		Timer t = new Timer();
-		t.start();
 		long answer = sc.nextLong();
 		sc.close();
 		
+		t.start();
 		File info = new File("info.txt");
 		int inputBiggestSequence = 0;
 		BigInteger starting = new BigInteger("1");
