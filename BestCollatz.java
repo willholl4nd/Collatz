@@ -1,5 +1,3 @@
-package com.WillHolland;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -56,7 +54,7 @@ public class BestCollatz extends Thread {
 		long answer = sc.nextLong();
 		sc.close();
 		
-		File info = new File("C:\\Users\\Will Holland\\eclipse-workspace\\Collatz\\info.txt");
+		File info = new File("info.txt");
 		int inputBiggestSequence = 0;
 		BigInteger starting = new BigInteger("1");
 		if(info.exists()) {
@@ -86,7 +84,10 @@ public class BestCollatz extends Thread {
 						/*If the sequence is bigger than the previous biggest sequence,
 						we will create a file and write the sequence to it.*/
 						if(threads[j].list.size() > inputBiggestSequence) {
-							File f = new File("C:\\Users\\Will Holland\\eclipse-workspace\\Collatz\\completed collatz\\" + threads[j].initial + ".txt");
+							File dir = new File("completed collatz/");
+							if(!dir.isDirectory())
+								dir.mkdir();
+							File f = new File("completed collatz/" + threads[j].initial + ".txt");
 							PrintWriter p = new PrintWriter(f);
 							System.out.println(threads[j].initial.longValue());
 							p.write(threads[j].initial+"\n");
@@ -111,7 +112,7 @@ public class BestCollatz extends Thread {
 		info.delete();
 		
 		try {
-			PrintWriter p = new PrintWriter(new File("C:\\Users\\Will Holland\\eclipse-workspace\\Collatz\\info.txt"));
+			PrintWriter p = new PrintWriter(new File("info.txt"));
 			p.write(inputBiggestSequence + "\n");
 			p.write(starting.toString());
 			p.close();

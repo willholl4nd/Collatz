@@ -1,5 +1,3 @@
-package com.WillHolland;
-
 public class Timer {
 	private long startTime, endTime;
 	private int[] timeElapsed;
